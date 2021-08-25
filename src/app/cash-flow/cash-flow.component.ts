@@ -7,14 +7,20 @@ import { CashflowService } from 'src/services/cashflow.service';
   styleUrls: ['./cash-flow.component.css'],
 })
 export class CashFlowComponent implements OnInit {
-  data: Object = {};
+  incomeBarChartData: any = [{ data: [], label: 'Income' }];
+  incomeBarChartLabels: any = ['Income'];
+  incomeBarChartOptions: any = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+  };
+  incomeBarChartLegend: boolean = true;
+  incomeBarChartType: any = 'bar';
 
   constructor(private cashflowService: CashflowService) {}
 
   ngOnInit(): void {
-    this.cashflowService.getData().subscribe((data) => {
-      console.log(data);
-      this.data = data;
+    this.cashflowService.getIncome().subscribe((data: any) => {
+      this.incomeBarChartData[0].data = [data];
     });
   }
 }
