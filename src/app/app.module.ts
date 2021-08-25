@@ -9,6 +9,7 @@ import { CashFlowComponent } from './cash-flow/cash-flow.component';
 import { NetWorthComponent } from './net-worth/net-worth.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { TopFiveComponent } from './top-five/top-five.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TopFiveComponent } from './top-five/top-five.component';
     CashFlowComponent,
     NetWorthComponent,
     AccountDetailsComponent,
-    TopFiveComponent
+    TopFiveComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
