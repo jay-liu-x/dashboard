@@ -3,10 +3,10 @@ Total networth:
 <span>{{totalNetWorth}}</span><br>
 <h4>Cash:</h4>
 <span>{{cashNetWorth}}</span><br>
-<span *ngFor='let item of cash'>{{item.name}} {{item.value}} {{item.date}}<br></span>
+<span *ngFor='let item of cash'>{{item.company}} {{item.name}} {{item.value}} {{item.date}}<br></span>
 <h4>Investments:</h4>
 <span>{{investmentNetWorth}}</span><br>
 <div class="scroll">
-    <span *ngFor='let item of investments'>{{item.symbol}} {{item.value}} {{item.date}}<br></span>
+    <span *ngFor='let item of investments'>{{item.accountName}} {{item.symbol}} {{item.value}} {{item.date}}<br></span>
 </div>
 
