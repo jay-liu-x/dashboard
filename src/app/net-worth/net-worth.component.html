@@ -1,2 +1,9 @@
 <p>net-worth works!</p>
-<chart [type]="type" [data]="data"></chart>
+<div style="display: block;">
+    <canvas baseChart width="600" height ="200"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+    </div>

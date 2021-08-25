@@ -1,5 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NetWorthService } from 'src/services/net-worth.service';
+import { Color, BaseChartDirective, Label } from 'ng2-charts';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-net-worth',
@@ -8,21 +10,14 @@ import { NetWorthService } from 'src/services/net-worth.service';
 })
 
 export class NetWorthComponent implements OnInit {
-  // netWorthData = {date: new Date(2021-08-22), networth: 0.1}
-  type = 'line'
-  data = {labels: [''], datasets: [{
-    label: 'Net Worth',
-    data: [1]
-  }]}
-  testdata = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-      {
-        label: "My First dataset",
-        data: [65, 59, 80, 81, 56, 55, 40]
-      }
-    ]
-  }
+  lineChartData = [{ data: [1400], label: 'Net Worth' }]
+  lineChartLabels = [""]
+  lineChartType: any = 'line';
+  lineChartLegend: boolean = true;
+  lineChartOptions:  any = {
+    scaleShowVerticalLines: false,
+    responsive: false,
+  };
 
   paramObj = {category: 'investment_accounts', id:1}
 
@@ -30,20 +25,16 @@ export class NetWorthComponent implements OnInit {
 
   ngOnInit(): void {
     this.netWorthService.getNetWorthById(this.paramObj).subscribe((netWorthData:any) => {
-      console.log(netWorthData);
-      // this.netWorthData = netWorthData
-      netWorthData.forEach((data: { date: string; networth: number; }) => {
-        this.data.labels.push(data.date)
-        this.data.datasets[0].data.push(data.networth)
-      });
-      this.data.labels.shift()
-      this.data.datasets[0].data.shift()
-      this.makeChart()
+      this.makeChart(netWorthData)
     });
   }
 
-  makeChart(): void {
-    console.log(this.data)
-    console.log(this.testdata)
+  makeChart(netWorthData:any): void {
+    netWorthData.forEach((data: { date: string; networth: number; }) => {
+      this.lineChartLabels.push(data.date)
+      this.lineChartData[0].data.push(data.networth)
+    })
+    this.lineChartLabels.shift()
+    this.lineChartData[0].data.shift()
   }
 }
