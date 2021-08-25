@@ -1,4 +1,10 @@
 <p>net-worth works!</p>
+<select [(ngModel)]="paramObj.category" (change)="consoleLog(paramObj.category)">
+  <option value="//">All Accounts</option>
+  <option value="cash_accounts">Cash Accounts</option>
+  <option value="investment_accounts">Investment Accounts</option>
+</select>
+
 <div style="display: block">
   <canvas
     baseChart

@@ -23,20 +23,24 @@ export class AccountDetailsComponent implements OnInit {
     this.netWorthService.getAllCashAccounts().subscribe((data:any) => {
       this.generateCashData(data)
     });
-    this.netWorthService.getNetWorthById({category: '/total', id:-1}).subscribe((data:any) => {
-      this.totalNetWorth = data
-    });
     this.netWorthService.getNetWorthById({category: 'cash_accounts/total', id:-1}).subscribe((data:any) => {
       this.cashNetWorth = data
     });
     this.netWorthService.getNetWorthById({category: 'investment_accounts/total', id:-1}).subscribe((data:any) => {
       this.investmentNetWorth = data
+      this.totalNetWorth = data + this.cashNetWorth
     });
   }
 
   generateInvestmentData(data: any) {
-    data.forEach((element: { symbol: any; quantity: any; closePrice: any; date: any; }) => {
-      let data = {symbol: element.symbol, value: element.quantity*element.closePrice, date: element.date}
+    data.forEach((element: { symbol: any; quantity: any; closePrice: any; date: any; investmentAccountId: any}) => {
+      let accountName
+      if (element.investmentAccountId == 1) {
+        accountName = 'RRSP'
+      } else {
+        accountName = 'TFSA'
+      }
+      let data = {accountName: accountName, symbol: element.symbol, value: element.quantity*element.closePrice, date: element.date}
       this.investments.push(data)
     });
     this.investments.sort((a, b) => (a.date < b.date) ? 1 : -1)
@@ -44,7 +48,7 @@ export class AccountDetailsComponent implements OnInit {
 
   generateCashData(data:any) {
     data.forEach((element: { name: string; value: number; currentDate: string; }) => {
-      let data = {name: element.name, value: element.value, date: element.currentDate}
+      let data = {company: 'CIBC', name: element.name, value: element.value, date: element.currentDate}
       this.cash.push(data)
     });
   }
