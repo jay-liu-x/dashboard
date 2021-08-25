@@ -1,11 +1,11 @@
 <p>top-five works!</p>
 <h3>Top Five Gainers:</h3>
 <ul>
-    <li *ngFor='let stock of reportDataGain'>{{stock.symbol}}</li>
+    <li *ngFor='let stock of reportDataGain'>{{stock.symbol}} : {{stock.percentage}}%</li>
 </ul>
 
 
 <h3>Top Five Losers:</h3>
 <ul>
-    <li *ngFor='let stock of reportDataLose'>{{stock.symbol}}</li>
+    <li *ngFor='let stock of reportDataLose'>{{stock.symbol}} : {{stock.percentage}}%</li>
 </ul>

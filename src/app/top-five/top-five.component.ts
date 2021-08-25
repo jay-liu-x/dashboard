@@ -9,18 +9,18 @@ import{TopFiveService} from  'src/services/top-five.service';
 export class TopFiveComponent implements OnInit {
 
   reportDataGain=[
-    {symbol:''},
-    {symbol:''},
-    {symbol:''},
-    {symbol:''},
-    {symbol:''}
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0}
   ]
   reportDataLose=[
-    {symbol:''},
-    {symbol:''},
-    {symbol:''},
-    {symbol:''},
-    {symbol:''}
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0},
+    {symbol:'',percentage:0.0}
   ]
 
   constructor(private topfiveService:TopFiveService) { }
@@ -31,6 +31,7 @@ export class TopFiveComponent implements OnInit {
         console.log(data)
         for(let i=0;i<5;i++){
           this.reportDataGain[i]['symbol'] = data[i]['symbol']
+          this.reportDataGain[i]['percentage'] =(data[i]['closePrice']/ data[i]['purchasePrice'])*100-100
         }
       })
 
@@ -39,6 +40,7 @@ export class TopFiveComponent implements OnInit {
         console.log(data)
         for(let i=0;i<5;i++){
           this.reportDataLose[i]['symbol'] = data[i]['symbol']
+          this.reportDataLose[i]['percentage'] =(data[i]['closePrice']/ data[i]['purchasePrice'])*100-100
         }
       })
 
