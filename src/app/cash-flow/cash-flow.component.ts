@@ -11,6 +11,8 @@ export class CashFlowComponent implements OnInit {
   totalIncome: number = 0;
   totalSpending: number = 0;
 
+  showLineChart = true;
+
   chartData: any = [
     { data: [], label: 'Income' },
     { data: [], label: 'Spending' },
@@ -74,5 +76,9 @@ export class CashFlowComponent implements OnInit {
       const totalSpending = spendingsData.reduce((a: any, b: any) => a + b, 0);
       this.totalSpending = totalSpending;
     });
+  }
+
+  onToggleView(): void {
+    this.showLineChart = !this.showLineChart;
   }
 }

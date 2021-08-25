@@ -1,17 +1,32 @@
 <h2>Cash Flow</h2>
-<h3>Income: {{totalIncome | currency:'USD'}}</h3>
-<h3>Spending: {{totalSpending | currency:'USD'}}</h3>
-<h3>Overall: {{totalIncome - totalSpending | currency:'USD'}}</h3>
+<h3>Income: {{ totalIncome | currency: "USD" }}</h3>
+<h3>Spending: {{ totalSpending | currency: "USD" }}</h3>
+<h3>Overall: {{ totalIncome - totalSpending | currency: "USD" }}</h3>
+<button (click)="onToggleView()">Toggle View</button>
 <div style="display: block">
   <canvas
+    *ngIf="showLineChart; else barChart"
     baseChart
     [datasets]="chartData"
     [labels]="chartLabels"
     [options]="chartOptions"
     [legend]="chartLegend"
-    [chartType]="chartType"
+    [chartType]="'line'"
     [colors]="chartColors"
     height="300"
   >
   </canvas>
+  <ng-template #barChart>
+    <canvas
+      baseChart
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      [legend]="chartLegend"
+      [chartType]="'bar'"
+      [colors]="chartColors"
+      height="300"
+    >
+    </canvas
+  ></ng-template>
 </div>
