@@ -23,27 +23,15 @@ export class AccountDetailsComponent implements OnInit {
     this.netWorthService.getAllCashAccounts().subscribe((data:any) => {
       this.generateCashData(data)
     });
-    this.netWorthService.getNetWorthById({category: '/', id:-1}).subscribe((data:any) => {
-      let netWorth = this.getNewestNetWorth(data)
-      this.totalNetWorth = netWorth[0].netWorth
+    this.netWorthService.getNetWorthById({category: '/total', id:-1}).subscribe((data:any) => {
+      this.totalNetWorth = data
     });
-    this.netWorthService.getNetWorthById({category: 'cash_accounts', id:-1}).subscribe((data:any) => {
-      let netWorth = this.getNewestNetWorth(data)
-      this.cashNetWorth = netWorth[0].netWorth
+    this.netWorthService.getNetWorthById({category: 'cash_accounts/total', id:-1}).subscribe((data:any) => {
+      this.cashNetWorth = data
     });
-    this.netWorthService.getNetWorthById({category: 'investment_accounts', id:-1}).subscribe((data:any) => {
-      let netWorth = this.getNewestNetWorth(data)
-      this.investmentNetWorth = netWorth[0].netWorth
+    this.netWorthService.getNetWorthById({category: 'investment_accounts/total', id:-1}).subscribe((data:any) => {
+      this.investmentNetWorth = data
     });
-  }
-
-  getNewestNetWorth(data:any) {
-    let netWorth: { date: string; netWorth: number; }[] = []
-    data.forEach((element: { date: string; networth: number; }) => {
-      let data = {date: element.date, netWorth: element.networth}
-      netWorth.push(data)
-    })
-    return netWorth.sort((a, b) => (a.date < b.date) ? 1 : -1)
   }
 
   generateInvestmentData(data: any) {
