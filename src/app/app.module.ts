@@ -6,11 +6,15 @@ import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
+import { NetWorthComponent } from './net-worth/net-worth.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CashFlowComponent
+    CashFlowComponent,
+    NetWorthComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,

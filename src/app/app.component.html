@@ -1,8 +1,21 @@
+<nav>
+  <a routerLink='/market-movers' >Market Movers</a>
+</nav>
+
 <ng-container>
   <h1>Portfolio Manager</h1>
+
+  <ng-container>
+    <h2>Net Worth</h2>
+    <app-account-details></app-account-details>
+    <app-net-worth></app-net-worth>
+  </ng-container>
 
   <ng-container>
     <h2>Cash Flow</h2>
     <app-cash-flow></app-cash-flow>
   </ng-container>
 </ng-container>
+
+
+<router-outlet> </router-outlet>
