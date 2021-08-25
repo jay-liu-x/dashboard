@@ -19,4 +19,10 @@ export class NetWorthService {
       `http://profoliomanager-profoliomanager.namdevops29.conygre.com/investments`
     )
   }
+
+  getAllCashAccounts() {
+    return this.http.get(
+      `http://profoliomanager-profoliomanager.namdevops29.conygre.com/cash_accounts`
+    )
+  }
 }
