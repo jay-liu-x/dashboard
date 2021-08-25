@@ -10,6 +10,7 @@ import { NetWorthComponent } from './net-worth/net-worth.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { TopFiveComponent } from './top-five/top-five.component';
 import { NewsComponent } from './news/news.component';
+import { MarketMoversComponent } from './market-movers/market-movers.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewsComponent } from './news/news.component';
     NetWorthComponent,
     AccountDetailsComponent,
     TopFiveComponent,
-    NewsComponent
+    NewsComponent,
+    MarketMoversComponent
   ],
   imports: [
     BrowserModule,
