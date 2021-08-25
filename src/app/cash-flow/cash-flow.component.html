@@ -1,15 +1,17 @@
-<p>cash-flow works!</p>
-<!-- <canvas id="cash-flow-income" width="400" height="200"></canvas> -->
+<h2>Cash Flow</h2>
+<h3>Income: {{totalIncome | currency:'USD'}}</h3>
+<h3>Spending: {{totalSpending | currency:'USD'}}</h3>
+<h3>Overall: {{totalIncome - totalSpending | currency:'USD'}}</h3>
 <div style="display: block">
   <canvas
     baseChart
-    [datasets]="incomeBarChartData"
-    [labels]="incomeBarChartLabels"
-    [options]="incomeBarChartOptions"
-    [legend]="incomeBarChartLegend"
-    [chartType]="incomeBarChartType"
-    width="100"
-    height="100"
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [legend]="chartLegend"
+    [chartType]="chartType"
+    [colors]="chartColors"
+    height="300"
   >
   </canvas>
 </div>

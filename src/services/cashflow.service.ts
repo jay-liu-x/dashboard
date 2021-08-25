@@ -7,15 +7,15 @@ import { HttpClient } from '@angular/common/http';
 export class CashflowService {
   constructor(private http: HttpClient) {}
 
-  getIncome() {
+  getIncomes() {
     return this.http.get(
-      `http://profoliomanager-profoliomanager.namdevops29.conygre.com/cash_flow/income`
+      `http://profoliomanager-profoliomanager.namdevops29.conygre.com/cash_flow/incomes`
     );
   }
 
-  getSpending() {
+  getSpendings() {
     return this.http.get(
-      `http://profoliomanager-profoliomanager.namdevops29.conygre.com/cash_flow/spending`
+      `http://profoliomanager-profoliomanager.namdevops29.conygre.com/cash_flow/spendings`
     );
   }
 
