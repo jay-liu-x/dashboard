@@ -8,7 +8,13 @@ export class TopFiveService {
 
   constructor(private http:HttpClient) { }
 
-  getTopFive(){
+  getTopFiveGainers(){
     return this.http.get(`http://profoliomanager-profoliomanager.namdevops29.conygre.com/investments/top_five_gainers`);
   }
+
+  getTopFiveLosers(){
+    return this.http.get(`http://profoliomanager-profoliomanager.namdevops29.conygre.com/investments/top_five_losers`);
+  }
+
+
 }
