@@ -1,13 +1,13 @@
 <h2>News</h2>
 <button (click)="getNews()">Gimme all</button>
 
-<div>
+<form>
   <label for="symbol">Enter a symbol:</label>
-  <input placeholder="AAPL" [(ngModel)]="symbol" name="symbol" />
+  <input placeholder="AAPL" [(ngModel)]="symbol" name="symbol" required />
   <button (click)="getNewsBySymbol()">Search</button>
-</div>
+</form>
 
-<div>
+<form>
   <label for="exchange"
     >Enter an
     <a
@@ -16,11 +16,17 @@
       >exchange code</a
     >:</label
   >
-  <input placeholder="US" [(ngModel)]="exchange" name="exchange" />
+  <input placeholder="US" [(ngModel)]="exchange" name="exchange" required />
   <button (click)="getRandomNews()">Feeling lucky</button>
   <p *ngIf="this.symbol">News for: {{ this.symbol }}</p>
-</div>
+</form>
 
 <div *ngIf="news">
-  {{ news | json }}
+  <ul>
+    <div *ngFor="let item of news">
+      <li>
+        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+      </li>
+    </div>
+  </ul>
 </div>
