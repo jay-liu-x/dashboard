@@ -1,1 +1,26 @@
 <h2>News</h2>
+<button (click)="getNews()">Gimme all</button>
+
+<div>
+  <label for="symbol">Enter a symbol:</label>
+  <input placeholder="AAPL" [(ngModel)]="symbol" name="symbol" />
+  <button (click)="getNewsBySymbol()">Search</button>
+</div>
+
+<div>
+  <label for="exchange"
+    >Enter an
+    <a
+      href="https://docs.google.com/spreadsheets/d/1I3pBxjfXB056-g_JYf_6o3Rns3BV2kMGG1nCatb91ls/edit#gid=0"
+      target="_blank"
+      >exchange code</a
+    >:</label
+  >
+  <input placeholder="US" [(ngModel)]="exchange" name="exchange" />
+  <button (click)="getRandomNews()">Feeling lucky</button>
+  <p *ngIf="this.symbol">News for: {{ this.symbol }}</p>
+</div>
+
+<div *ngIf="news">
+  {{ news | json }}
+</div>
