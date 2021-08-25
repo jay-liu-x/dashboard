@@ -9,9 +9,15 @@ export class NetWorthService {
   constructor(private http: HttpClient) { }
 
   getNetWorthById(params={category:'cash_accounts',id:1}) {
-    return this.http.get(
-      `http://profoliomanager-profoliomanager.namdevops29.conygre.com/net_worth/${params.category}/${params.id}`
-    )
+    if (params.id == -1) {
+      return this.http.get(
+        `http://profoliomanager-profoliomanager.namdevops29.conygre.com/net_worth/${params.category}`
+      )
+    } else {
+      return this.http.get(
+        `http://profoliomanager-profoliomanager.namdevops29.conygre.com/net_worth/${params.category}/${params.id}`
+      )
+    }
   }
 
   getAllInvestments() {

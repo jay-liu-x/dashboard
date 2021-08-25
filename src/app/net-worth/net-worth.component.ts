@@ -1,7 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NetWorthService } from 'src/services/net-worth.service';
-import { Color, BaseChartDirective, Label } from 'ng2-charts';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-net-worth',
@@ -19,7 +17,7 @@ export class NetWorthComponent implements OnInit {
     responsive: false,
   };
 
-  paramObj = {category: 'investment_accounts', id:1}
+  paramObj = {category: '/', id:-1}
 
   constructor(private netWorthService: NetWorthService) {}
 
