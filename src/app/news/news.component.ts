@@ -19,7 +19,7 @@ export class NewsComponent implements OnInit {
     this.news = null;
 
     this.newsService.getNews().subscribe((data: any) => {
-      console.log(data)
+      console.log('Getting news...');
       this.news = data.map((item: any) => ({
         title: item.title,
         link: item.link,

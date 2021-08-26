@@ -1,7 +1,12 @@
 <div class="card p-2 mt-3 d-flex flex-col gy-3">
   <p class="h5">News</p>
 
-  <button class="btn btn-primary mt-2" (click)="getNews()">
+  <button
+    class="btn btn-primary mt-2"
+    (click)="getNews()"
+    data-bs-toggle="modal"
+    data-bs-target="#newsModal"
+  >
     What's new?<span class="btn-label"><i class="fas fa-stream"></i></span>
   </button>
 
@@ -21,6 +26,8 @@
       class="btn btn-primary"
       type="button"
       id="search-by-symbol"
+      data-bs-toggle="modal"
+      data-bs-target="#newsModal"
     >
       Search<span class="btn-label"><i class="fas fa-search"></i></span>
     </button>
@@ -42,6 +49,8 @@
       class="btn btn-primary"
       type="button"
       id="search-by-symbol"
+      data-bs-toggle="modal"
+      data-bs-target="#newsModal"
     >
       Feeling lucky<span class="btn-label"><i class="fas fa-magic"></i></span>
     </button>
@@ -57,14 +66,53 @@
     >
   </small>
 
-  <div *ngIf="news" style="height: 100px">
-    <p *ngIf="this.symbol">News for: {{ this.symbol }}</p>
-    <ul class="list-group list-group-flush">
-      <div *ngFor="let item of news">
-        <li class="list-group-item">
-          <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
-        </li>
+  <!-- News modal -->
+  <div
+    class="modal fade"
+    id="newsModal"
+    tabindex="-1"
+    aria-labelledby="newsModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newsModalLabel">News</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="news; else noNewsMsg" style="height: auto">
+            <p *ngIf="this.symbol">Symbol: <span class="text-info">{{ this.symbol }}</span></p>
+            <ul class="list-group list-group-flush">
+              <div *ngFor="let item of news">
+                <li class="list-group-item">
+                  <a
+                    href="{{ item.link }}"
+                    target="_blank"
+                    style="text-decoration: none; font-size: 0.8rem"
+                    >{{ item.title }}</a
+                  >
+                </li>
+              </div>
+            </ul>
+          </div>
+          <ng-template #noNewsMsg>Oops, there is no news available for <span class="text-info">{{ this.symbol }}</span> </ng-template>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
       </div>
-    </ul>
+    </div>
   </div>
 </div>
