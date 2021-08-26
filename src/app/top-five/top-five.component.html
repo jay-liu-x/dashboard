@@ -1,6 +1,5 @@
-<div class="card p-2 my-3">
+<div class="card p-2 mt-3">
   <p class="h5">Gainers:</p>
-  <hr style="margin: 0 !important" />
   <div
     *ngFor="let stock of reportDataGain"
     class="d-flex flex-row justify-content-between"
@@ -11,8 +10,9 @@
     </div>
   </div>
 
+  <hr style="margin: 10px 0 !important" />
+
   <p class="h5">Losers:</p>
-  <hr style="margin: 0 !important" />
   <div
     *ngFor="let stock of reportDataLose"
     class="d-flex flex-row justify-content-between"
