@@ -4,7 +4,7 @@
 
 <ng-container>
   <h1>Portfolio Manager</h1>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-3">
         <ng-container>
@@ -12,7 +12,7 @@
           <app-account-details></app-account-details>
         </ng-container>
       </div>
-      <div class="col-4">
+      <div class="col-5">
         <app-net-worth></app-net-worth>
         <app-cash-flow></app-cash-flow>
       </div>
@@ -24,9 +24,9 @@
             <h2>Top Five Gainers and Losers</h2>
             <app-top-five></app-top-five>
           </ng-container>
-        
+
           <app-news></app-news>
-        
+
           <router-outlet> </router-outlet>
         </ng-container>
       </div>
