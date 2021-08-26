@@ -1,42 +1,42 @@
 <div class="card">
     <table class="table table-hover table-sm">
         <tbody>
-            <tr>
-                <td>NET WORTH</td>
-                <td>{{ totalNetWorth | currency: "USD" }}</td>
+            <tr class="table-info">
+                <td><b>NET WORTH</b></td>
+                <td  class="text-end"><b>{{ totalNetWorth | currency: "USD" }}</b></td>
             </tr>
-            <tr>
-                <td>Cash</td>
-                <td>{{ cashNetWorth | currency: "USD" }}</td>
+            <tr class="table-success">
+                <td><b>Cash</b></td>
+                <td class="text-end">{{ cashNetWorth | currency: "USD" }}</td>
             </tr>
             <tr *ngFor='let item of cash'>
                 <td colspan="2">
                     <table class="table table-hover table-sm">
                         <tr>
                             <td>{{item.name}}</td>
-                            <td>{{ item.value | currency: "USD" }}</td>
+                            <td class="text-end">{{ item.value | currency: "USD" }}</td>
                         </tr>
                         <tr>
-                            <td>{{item.company}}</td>
-                            <td>{{item.date}}</td>
+                            <td class="text-black-50">{{item.company}}</td>
+                            <td class="text-end text-black-50">{{item.date}}</td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td>Investments</td>
-                <td>{{ investmentNetWorth | currency: "USD" }}</td>
+            <tr class="table-success">
+                <td><b>Investments</b></td>
+                <td class="text-end">{{ investmentNetWorth | currency: "USD" }}</td>
             </tr>
             <tr *ngFor='let item of investments'>
                 <td colspan="2">
-                    <table>
+                    <table class="table">
                         <tr>
                             <td>{{item.symbol}}</td>
-                            <td>{{ item.value | currency: "USD" }}</td>
+                            <td class="text-end">{{ item.value | currency: "USD" }}</td>
                         </tr>
                         <tr>
-                            <td>{{item.accountName}}</td>
-                            <td>{{item.date}}</td>
+                            <td class="text-black-50">{{item.accountName}}</td>
+                            <td class="text-end text-black-50">{{item.date}}</td>
                         </tr>
                     </table>
                 </td>

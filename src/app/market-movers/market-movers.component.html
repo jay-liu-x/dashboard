@@ -1,8 +1,16 @@
 <div class="card p-3 my-3">
-  <p class="h3">Market Movers</p>
+
+<div class="d-flex">
+<div class="mr-auto p-2">
+    <p class="h3">Market Movers</p>
+</div>
+  <div class="p-2">
+      <button  type="button" class="btn btn-primary btn-xs active" (click)="showPercentage()">%</button>
+      <button type="button" class="btn btn-primary btn-xs active" (click)="showDifference()">$</button>
+  </div>
+  </div>
+  <hr>
   <p>TODAY</p>
-  <button (click)="showPercentage()">%</button>
-  <button (click)="showDifference()">$</button>
   <ul>
     <li>DOW JONES: {{ DOWJONESData.show }}</li>
     <li>SP500: {{ SP500Data.show }}</li>

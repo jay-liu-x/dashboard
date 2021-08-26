@@ -16,6 +16,9 @@ export class NetWorthComponent implements OnInit {
   lineChartOptions:  any = {
     scaleShowVerticalLines: false,
     responsive: true,
+    scales: {
+      yAxes: [{ticks:{beginAtZero: true}}]
+    }
   };
 
   paramObj = {category: 'investment_accounts', id: -1}
