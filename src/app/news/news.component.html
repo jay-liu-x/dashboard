@@ -1,32 +1,70 @@
-<h2>News</h2>
-<button (click)="getNews()">Gimme all</button>
+<div class="card p-3 my-3 d-flex flex-col gy-3">
+  <p class="h3">News</p>
 
-<form>
-  <label for="symbol">Enter a symbol:</label>
-  <input placeholder="AAPL" [(ngModel)]="symbol" name="symbol" required />
-  <button (click)="getNewsBySymbol()">Search</button>
-</form>
+  <button class="btn btn-primary mt-2" (click)="getNews()">
+    What's new?<span class="btn-label"><i class="fas fa-stream"></i></span>
+  </button>
 
-<form>
-  <label for="exchange"
-    >Enter an
+  <form class="input-group mt-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Stock symbol"
+      aria-label="Stock symbol"
+      aria-describedby="search-by-symbol"
+      [(ngModel)]="symbol"
+      name="symbol"
+      required
+    />
+    <button
+      (click)="getNewsBySymbol()"
+      class="btn btn-primary"
+      type="button"
+      id="search-by-symbol"
+    >
+      Search<span class="btn-label"><i class="fas fa-search"></i></span>
+    </button>
+  </form>
+
+  <form class="input-group mt-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Exchange code"
+      aria-label="Exchange code"
+      aria-describedby="search-by-exchange"
+      [(ngModel)]="exchange"
+      name="exchange"
+      required
+    />
+    <button
+      (click)="getRandomNews()"
+      class="btn btn-primary"
+      type="button"
+      id="search-by-symbol"
+    >
+      Feeling lucky<span class="btn-label"><i class="fas fa-magic"></i></span>
+    </button>
+  </form>
+
+  <small class="form-text text-muted text-center">
+    List of
     <a
       href="https://docs.google.com/spreadsheets/d/1I3pBxjfXB056-g_JYf_6o3Rns3BV2kMGG1nCatb91ls/edit#gid=0"
       target="_blank"
-      >exchange code</a
-    >:</label
-  >
-  <input placeholder="US" [(ngModel)]="exchange" name="exchange" required />
-  <button (click)="getRandomNews()">Feeling lucky</button>
-  <p *ngIf="this.symbol">News for: {{ this.symbol }}</p>
-</form>
+      style="text-decoration: none; cursor: pointer"
+      >exchange codes</a
+    >
+  </small>
 
-<div *ngIf="news">
-  <ul>
-    <div *ngFor="let item of news">
-      <li>
-        <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
-      </li>
-    </div>
-  </ul>
+  <div *ngIf="news" style="height: 100px">
+    <p *ngIf="this.symbol">News for: {{ this.symbol }}</p>
+    <ul class="list-group list-group-flush">
+      <div *ngFor="let item of news">
+        <li class="list-group-item">
+          <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+        </li>
+      </div>
+    </ul>
+  </div>
 </div>

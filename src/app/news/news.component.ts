@@ -19,6 +19,7 @@ export class NewsComponent implements OnInit {
     this.news = null;
 
     this.newsService.getNews().subscribe((data: any) => {
+      console.log(data)
       this.news = data.map((item: any) => ({
         title: item.title,
         link: item.link,
@@ -28,7 +29,7 @@ export class NewsComponent implements OnInit {
 
   getNewsBySymbol(): void {
     this.news = null;
-    
+
     this.newsService.getNewsBySymbol(this.symbol).subscribe((data: any) => {
       this.news = data.item.map((item: any) => ({
         title: item.title,
