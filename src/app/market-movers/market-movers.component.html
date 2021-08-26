@@ -1,20 +1,50 @@
 <div class="card p-2">
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <p class="h5">Market Movers</p>
+    <div class="d-flex flex-row gap-1">
+      <button
+        type="button"
+        class="btn btn-primary btn-xs active"
+        (click)="showPercentage()"
+      >
+        <i class="fas fa-percent"></i>
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn-xs active"
+        (click)="showDifference()"
+      >
+        <i class="fas fa-dollar-sign"></i>
+      </button>
+    </div>
+  </div>
 
-<div class="d-flex">
-<div class="mr-auto p-2">
-    <p class="h3">Market Movers</p>
-</div>
-  <div class="p-2">
-      <button  type="button" class="btn btn-primary btn-xs active" (click)="showPercentage()">%</button>
-      <button type="button" class="btn btn-primary btn-xs active" (click)="showDifference()">$</button>
+  <div class="container mt-2 d-grid gap-3">
+    <div class="row justify-content-between">
+      <div class="col-5 d-inline-block text-center card p-1">
+        <p class="my-1">DOW JONES</p>
+        <p class="my-1">{{ DOWJONESData.show }}</p>
+      </div>
+      <div class="col-5 d-inline-block text-center card p-1">
+        <p class="my-1">SP500</p>
+        <p class="my-1">{{ SP500Data.show }}</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-between">
+      <div class="col-5 d-inline-block text-center card p-1">
+        <p class="my-1">NASDQ</p>
+        <p class="my-1">{{ NASDQData.show }}</p>
+      </div>
+      <div class="col-5 d-inline-block text-center card p-1">
+        <p class="my-1">10-TR Bond</p>
+        <p class="my-1">{{ BondData.show }}</p>
+      </div>
+    </div>
   </div>
-  </div>
-  <hr>
-  <p>TODAY</p>
-  <ul>
-    <li>DOW JONES: {{ DOWJONESData.show }}</li>
+  <!-- <ul>
     <li>SP500: {{ SP500Data.show }}</li>
     <li>NASDQ: {{ NASDQData.show }}</li>
     <li>10-TR Bond: {{ BondData.show }}</li>
-  </ul>
+  </ul> -->
 </div>

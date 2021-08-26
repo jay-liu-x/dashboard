@@ -1,19 +1,19 @@
 <div class="card p-2 my-3 d-flex flex-col">
-  <p class="h3">Cash Flow</p>
+  <p class="h5">Cash Flow</p>
 
-  <table class="table table-hover w-75 mx-auto">
+  <table class="table table-hover w-75 mx-auto mt-3">
     <tbody>
       <tr class="table-success">
         <td>Income</td>
-        <td>{{ totalIncome | currency: "USD" }}</td>
+        <td class="text-end">{{ totalIncome | currency: "USD" }}</td>
       </tr>
       <tr class="table-danger">
         <td>Spending</td>
-        <td>{{ totalSpending | currency: "USD" }}</td>
+        <td class="text-end">{{ totalSpending | currency: "USD" }}</td>
       </tr>
       <tr class="table-dark">
         <td>Overall</td>
-        <td>{{ totalIncome - totalSpending | currency: "USD" }}</td>
+        <td class="text-end">{{ totalIncome - totalSpending | currency: "USD" }}</td>
       </tr>
     </tbody>
   </table>
