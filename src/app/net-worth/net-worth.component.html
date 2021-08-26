@@ -1,20 +1,24 @@
-<div class="card">
-  Select the account to view historical net worth:
-<select class='selector' [(ngModel)]="paramObj.category" (change)="consoleLog(paramObj.category)">
-  <option value="//">All Accounts</option>
-  <option value="cash_accounts">Cash Accounts</option>
-  <option value="investment_accounts">Investment Accounts</option>
-</select>
+<div class="card p-2">
+  <p class="h5 text-primary">Net Worth</p>
+  <select
+    class="form-select mt-2"
+    [(ngModel)]="paramObj.category"
+    (change)="consoleLog(paramObj.category)"
+  >
+    <option value="//">All Accounts</option>
+    <option value="cash_accounts">Cash Accounts</option>
+    <option value="investment_accounts">Investment Accounts</option>
+  </select>
 
-<div style="display: block">
-  <canvas
-    baseChart
-    height="150"
-    [datasets]="lineChartData"
-    [labels]="lineChartLabels"
-    [options]="lineChartOptions"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType"
-  ></canvas>
-</div>
+  <div class="mt-4" style="display: block">
+    <canvas
+      baseChart
+      height="150"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+    ></canvas>
+  </div>
 </div>
