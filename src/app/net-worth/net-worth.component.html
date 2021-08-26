@@ -1,13 +1,13 @@
 <div class="card">
   Select the account to view historical net worth:
-<select class='selector' [(ngModel)]="paramObj.category" (change)="consoleLog(paramObj.category)">
+<select class="form-select form-select-sm" [(ngModel)]="paramObj.category" (change)="consoleLog(paramObj.category)">
   <option value="//">All Accounts</option>
   <option value="cash_accounts">Cash Accounts</option>
   <option value="investment_accounts">Investment Accounts</option>
 </select>
 
-<div style="display: block">
-  <canvas
+<div display=block>
+  <canvas margin=10px
     baseChart
     height="150"
     [datasets]="lineChartData"
