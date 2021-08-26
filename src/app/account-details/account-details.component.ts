@@ -44,11 +44,10 @@ export class AccountDetailsComponent implements OnInit {
       day.setDate(day.getDate() +1)
       day = day.toLocaleString('default', {month:'short', day: 'numeric'})
       let data = {accountName: accountName, symbol: element.symbol, value: element.quantity*element.closePrice, date: day}
-      if (data.date == "Aug 18") {
-        this.investments.push(data)
-      }
+      this.investments.push(data)
     });
-    // this.investments.sort((a, b) => (a.date < b.date) ? 1 : -1)
+    this.investments.sort((a, b) => (a.date < b.date) ? 1 : -1)
+    this.investments = this.investments.slice(0,12)
   }
 
   generateCashData(data:any) {
