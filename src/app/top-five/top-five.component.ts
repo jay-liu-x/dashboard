@@ -31,7 +31,7 @@ export class TopFiveComponent implements OnInit {
         console.log(data)
         for(let i=0;i<5;i++){
           this.reportDataGain[i]['symbol'] = data[i]['symbol']
-          this.reportDataGain[i]['percentage'] =(data[i]['closePrice']/ data[i]['purchasePrice'])*100-100
+          this.reportDataGain[i]['percentage'] =((data[i]['closePrice']/ data[i]['purchasePrice'])*100-100)
         }
       })
 
