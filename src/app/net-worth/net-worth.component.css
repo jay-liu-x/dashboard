@@ -1,3 +1,4 @@
-.selector {
-    margin-left: 5px;
+.form-select {
+    margin-bottom: 5px;
+    max-width: 200px;
 }

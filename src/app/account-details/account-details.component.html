@@ -1,46 +1,69 @@
 <div class="card">
     <table class="table table-hover table-sm">
         <tbody>
-            <tr class="table-info">
-                <td><b>NET WORTH</b></td>
-                <td  class="text-end"><b>{{ totalNetWorth | currency: "USD" }}</b></td>
-            </tr>
             <tr class="table-success">
-                <td><b>Cash</b></td>
-                <td class="text-end">{{ cashNetWorth | currency: "USD" }}</td>
+                <td><h5>NET WORTH</h5></td>
+                <td  class="text-end"><h5>{{ totalNetWorth | currency: "USD" }}</h5></td>
             </tr>
-            <tr *ngFor='let item of cash'>
-                <td colspan="2">
-                    <table class="table table-hover table-sm">
-                        <tr>
-                            <td>{{item.name}}</td>
-                            <td class="text-end">{{ item.value | currency: "USD" }}</td>
+            
+            <div class="accordion-sm" id="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <tr class="table-success">
+                            <td><b>Cash</b></td>
+                            <td class="text-end">{{ cashNetWorth | currency: "USD" }}</td>
                         </tr>
-                        <tr>
-                            <td class="text-black-50">{{item.company}}</td>
-                            <td class="text-end text-black-50">{{item.date}}</td>
+                      </button>
+                  </div>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <tr *ngFor='let item of cash'>
+                            <td colspan="2">
+                                <table class="table table-hover table-sm">
+                                    <tr>
+                                        <td>{{item.name}}</td>
+                                        <td class="text-end">{{ item.value | currency: "USD" }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-black-50">{{item.company}}</td>
+                                        <td class="text-end text-black-50">{{item.date}}</td>
+                                    </tr>
+                                </table>
+                            </td>
                         </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="table-success">
-                <td><b>Investments</b></td>
-                <td class="text-end">{{ investmentNetWorth | currency: "USD" }}</td>
-            </tr>
-            <tr *ngFor='let item of investments'>
-                <td colspan="2">
-                    <table class="table">
-                        <tr>
-                            <td>{{item.symbol}}</td>
-                            <td class="text-end">{{ item.value | currency: "USD" }}</td>
+                      </div>
+                    </div>
+                  </div>
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <tr class="table-success">
+                            <td><b>Investments</b></td>
+                            <td class="text-end">{{ investmentNetWorth | currency: "USD" }}</td>
                         </tr>
-                        <tr>
-                            <td class="text-black-50">{{item.accountName}}</td>
-                            <td class="text-end text-black-50">{{item.date}}</td>
+                    </button>
+                </div>
+                  <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <tr *ngFor='let item of investments'>
+                            <td colspan="2">
+                                <table class="table">
+                                    <tr>
+                                        <td>{{item.symbol}}</td>
+                                        <td class="text-end">{{ item.value | currency: "USD" }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-black-50">{{item.accountName}}</td>
+                                        <td class="text-end text-black-50">{{item.date}}</td>
+                                    </tr>
+                                </table>
+                            </td>
                         </tr>
-                    </table>
-                </td>
-            </tr>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </tbody>
     </table>
 </div>

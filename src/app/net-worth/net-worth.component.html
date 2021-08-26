@@ -1,7 +1,8 @@
 <div class="card p-2">
   <p class="h5 text-primary">Net Worth</p>
   <select
-    class="form-select mt-2"
+    class="form-select mt-2 w-100"
+    style="max-width: 100% !important;"
     [(ngModel)]="paramObj.category"
     (change)="consoleLog(paramObj.category)"
   >
