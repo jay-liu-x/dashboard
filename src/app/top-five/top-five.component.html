@@ -1,10 +1,25 @@
-<h3>Top Five Gainers:</h3>
-<ul>
-    <li *ngFor='let stock of reportDataGain'>{{stock.symbol}} : {{stock.percentage}}%</li>
-</ul>
+<div class="card p-2 my-3">
+  <p class="h5">Gainers:</p>
+  <hr style="margin: 0 !important" />
+  <div
+    *ngFor="let stock of reportDataGain"
+    class="d-flex flex-row justify-content-between"
+  >
+    <div>{{ stock.symbol }}</div>
+    <div class="text-success">
+      {{ stock.percentage / 100 | percent: "1.3-3" }}
+    </div>
+  </div>
 
-
-<h3>Top Five Losers:</h3>
-<ul>
-    <li *ngFor='let stock of reportDataLose'>{{stock.symbol}} : {{stock.percentage}}%</li>
-</ul>
+  <p class="h5">Losers:</p>
+  <hr style="margin: 0 !important" />
+  <div
+    *ngFor="let stock of reportDataLose"
+    class="d-flex flex-row justify-content-between"
+  >
+    <div>{{ stock.symbol }}</div>
+    <div class="text-danger">
+      {{ stock.percentage / 100 | percent: "1.3-3" }}
+    </div>
+  </div>
+</div>

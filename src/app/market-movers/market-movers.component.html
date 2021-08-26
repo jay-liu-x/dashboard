@@ -1,9 +1,12 @@
-<p>TODAY</p>
-<button (click)='showPercentage()' >%</button>
-<button (click)='showDifference()' >$</button>
-<ul>
-    <li >DOW JONES: {{DOWJONESData.show}}</li>
-    <li >SP500: {{SP500Data.show}}</li>
-    <li >NASDQ: {{NASDQData.show}}</li>
-    <li >10-TR Bond: {{BondData.show}}</li>
-</ul>
+<div class="card p-3 my-3">
+  <p class="h3">Market Movers</p>
+  <p>TODAY</p>
+  <button (click)="showPercentage()">%</button>
+  <button (click)="showDifference()">$</button>
+  <ul>
+    <li>DOW JONES: {{ DOWJONESData.show }}</li>
+    <li>SP500: {{ SP500Data.show }}</li>
+    <li>NASDQ: {{ NASDQData.show }}</li>
+    <li>10-TR Bond: {{ BondData.show }}</li>
+  </ul>
+</div>

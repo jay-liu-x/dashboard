@@ -3,31 +3,19 @@
 </nav>-->
 
 <ng-container>
-  <h2>Portfolio Manager</h2>
-  <div class="container-xxl p-3">
-    <div class="row g-3">
-      <div class="col-3">
-        <ng-container>
-          <app-account-details></app-account-details>
-        </ng-container>
+  <div class="container-xxl p-3 vh-100">
+    <div class="row h-100">
+      <div class="col-3 no-float h-100">
+        <app-account-details></app-account-details>
       </div>
-      <div class="col-5">
+      <div class="col-5 no-float h-100">
         <app-net-worth></app-net-worth>
         <app-cash-flow></app-cash-flow>
       </div>
-      <div class="col-4">
-        <ng-container>
-          <h2>Market Movers</h2>
-          <app-market-movers></app-market-movers>
-          <ng-container>
-            <h2>Top Five Gainers and Losers</h2>
-            <app-top-five></app-top-five>
-          </ng-container>
-
-          <app-news></app-news>
-
-          <router-outlet> </router-outlet>
-        </ng-container>
+      <div class="col-4 no-float h-100">
+        <app-market-movers></app-market-movers>
+        <app-top-five></app-top-five>
+        <app-news></app-news>
       </div>
     </div>
   </div>
