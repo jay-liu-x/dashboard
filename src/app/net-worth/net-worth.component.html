@@ -1,4 +1,5 @@
-Select the accounts you want to view:
+<div class="card">
+  Select the accounts:
 <select class='selector' [(ngModel)]="paramObj.category" (change)="consoleLog(paramObj.category)">
   <option value="//">All Accounts</option>
   <option value="cash_accounts">Cash Accounts</option>
@@ -15,4 +16,5 @@ Select the accounts you want to view:
     [legend]="lineChartLegend"
     [chartType]="lineChartType"
   ></canvas>
+</div>
 </div>
