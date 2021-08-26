@@ -7,16 +7,16 @@ import{MarketMoversService} from  'src/services/market-movers.service';
   styleUrls: ['./market-movers.component.css']
 })
 export class MarketMoversComponent implements OnInit {
-  DOWJONESData:any ={percentage:'' , difference:'',show:''}
-  SP500Data: any = {percentage:'' , difference:'',show:''}
-  NASDQData: any = {percentage:'' , difference:'',show:''}
-  BondData: any = {percentage:'' , difference:'',show:''}
+  DOWJONESData:any ={percentage:'0.0' , difference:'0.0',show: '0.0'}
+  SP500Data: any = {percentage:'0.0' , difference:'0.0',show: '0.0'}
+  NASDQData: any = {percentage:'0.0' , difference:'0.0',show: '0.0'}
+  BondData: any = {percentage:'0.0' , difference:'0.0',show: '0.0'}
 
   constructor(private marketmoversService:MarketMoversService) { }
 
   ngOnInit(): void {
 
-    this.marketmoversService.getDOWJONES()
+   /* this.marketmoversService.getDOWJONES()
       .subscribe((data:any)=>{
         console.log(data)
         this.DOWJONESData['percentage'] =  (data['prices'][0]['close']/ data['prices'][1]['close'])*100-100
@@ -58,7 +58,7 @@ export class MarketMoversComponent implements OnInit {
         //initialization
         this.NASDQData['show'] = this.NASDQData['percentage']
         
-      })
+      })*/
 
 
 

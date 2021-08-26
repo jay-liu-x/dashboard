@@ -29,9 +29,6 @@ export class AccountDetailsComponent implements OnInit {
     this.netWorthService.getNetWorthById({category: 'investment_accounts/total', id:-1}).subscribe((data:any) => {
       this.investmentNetWorth = data
       this.totalNetWorth = data + this.cashNetWorth
-      this.cashNetWorth = this.cashNetWorth.toLocaleString()
-      this.investmentNetWorth = this.investmentNetWorth.toLocaleString()
-      this.totalNetWorth = this.totalNetWorth.toLocaleString()
     });
   }
 
@@ -47,9 +44,11 @@ export class AccountDetailsComponent implements OnInit {
       day.setDate(day.getDate() +1)
       day = day.toLocaleString('default', {month:'short', day: 'numeric'})
       let data = {accountName: accountName, symbol: element.symbol, value: element.quantity*element.closePrice, date: day}
-      this.investments.push(data)
+      if (data.date == "Aug 18") {
+        this.investments.push(data)
+      }
     });
-    this.investments.sort((a, b) => (a.date < b.date) ? 1 : -1)
+    // this.investments.sort((a, b) => (a.date < b.date) ? 1 : -1)
   }
 
   generateCashData(data:any) {

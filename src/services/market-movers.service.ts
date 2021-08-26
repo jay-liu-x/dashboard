@@ -9,6 +9,7 @@ export class MarketMoversService {
   constructor(private http: HttpClient) { }
 
   getDOWJONES(){
+   
     return this.http.get(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v3/get-historical-data?symbol=%5EDJI&region=US`,
     {
       headers:{
