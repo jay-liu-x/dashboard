@@ -31,7 +31,7 @@ export class NetWorthComponent implements OnInit {
 
   makeChart(): void {
     if (this.paramObj.category == "cash_accounts") {
-      this.lineChartData = [{ data: [1999, 1999, 1999, 1999, 1999, 1999, 1999], label: 'Net Worth' }]
+      this.lineChartData = [{ data: [2500, 2600, 2200, 1999, 1999, 1999, 1999], label: 'Net Worth' }]
       this.lineChartLabels = ["2021-08-12", "2021-08-13", "2021-08-14", "2021-08-15", "2021-08-16", "2021-08-17", "2021-08-18"]
     } else {
       this.lineChartData = [{ data: [1999], label: 'Net Worth' }]
