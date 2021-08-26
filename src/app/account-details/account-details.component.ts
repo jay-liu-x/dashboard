@@ -10,9 +10,9 @@ export class AccountDetailsComponent implements OnInit {
 
   investments: any[] = [];
   cash: any[] = [];
-  totalNetWorth = 0;
-  investmentNetWorth = 0;
-  cashNetWorth = 0;
+  totalNetWorth = '';
+  investmentNetWorth = '';
+  cashNetWorth = '';
 
   constructor(private netWorthService: NetWorthService) {}
 
@@ -29,6 +29,9 @@ export class AccountDetailsComponent implements OnInit {
     this.netWorthService.getNetWorthById({category: 'investment_accounts/total', id:-1}).subscribe((data:any) => {
       this.investmentNetWorth = data
       this.totalNetWorth = data + this.cashNetWorth
+      this.cashNetWorth = this.cashNetWorth.toLocaleString()
+      this.investmentNetWorth = this.investmentNetWorth.toLocaleString()
+      this.totalNetWorth = this.totalNetWorth.toLocaleString()
     });
   }
 
@@ -40,7 +43,10 @@ export class AccountDetailsComponent implements OnInit {
       } else {
         accountName = 'TFSA'
       }
-      let data = {accountName: accountName, symbol: element.symbol, value: element.quantity*element.closePrice, date: element.date}
+      let day:any = new Date(element.date)
+      day.setDate(day.getDate() +1)
+      day = day.toLocaleString('default', {month:'short', day: 'numeric'})
+      let data = {accountName: accountName, symbol: element.symbol, value: element.quantity*element.closePrice, date: day}
       this.investments.push(data)
     });
     this.investments.sort((a, b) => (a.date < b.date) ? 1 : -1)
@@ -48,7 +54,10 @@ export class AccountDetailsComponent implements OnInit {
 
   generateCashData(data:any) {
     data.forEach((element: { name: string; value: number; currentDate: string; }) => {
-      let data = {company: 'CIBC', name: element.name, value: element.value, date: element.currentDate}
+      let day:any = new Date(element.currentDate)
+      day.setDate(day.getDate() +1)
+      day = day.toLocaleString('default', {month:'short', day: 'numeric'})
+      let data = {company: 'CIBC', name: element.name, value: element.value, date: day}
       this.cash.push(data)
     });
   }

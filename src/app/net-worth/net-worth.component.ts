@@ -15,10 +15,10 @@ export class NetWorthComponent implements OnInit {
   lineChartLegend: boolean = false;
   lineChartOptions:  any = {
     scaleShowVerticalLines: false,
-    responsive: false,
+    responsive: true,
   };
 
-  paramObj = {category: '/', id: -1}
+  paramObj = {category: 'investment_accounts', id: -1}
 
   constructor(private netWorthService: NetWorthService) {}
 

@@ -1,5 +1,5 @@
-<p>net-worth works!</p>
-<select [(ngModel)]="paramObj.category" (change)="consoleLog(paramObj.category)">
+Select the accounts you want to view:
+<select class='selector' [(ngModel)]="paramObj.category" (change)="consoleLog(paramObj.category)">
   <option value="//">All Accounts</option>
   <option value="cash_accounts">Cash Accounts</option>
   <option value="investment_accounts">Investment Accounts</option>
@@ -8,8 +8,7 @@
 <div style="display: block">
   <canvas
     baseChart
-    width="300%"
-    height="200"
+    height="150"
     [datasets]="lineChartData"
     [labels]="lineChartLabels"
     [options]="lineChartOptions"

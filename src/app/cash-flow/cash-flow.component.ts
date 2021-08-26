@@ -11,7 +11,7 @@ export class CashFlowComponent implements OnInit {
   totalIncome: number = 0;
   totalSpending: number = 0;
 
-  showLineChart = true;
+  showBarChart = false;
 
   chartData: any = [
     { data: [], label: 'Income' },
@@ -79,6 +79,6 @@ export class CashFlowComponent implements OnInit {
   }
 
   onToggleView(): void {
-    this.showLineChart = !this.showLineChart;
+    this.showBarChart = !this.showBarChart;
   }
 }

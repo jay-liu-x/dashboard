@@ -1,12 +1,19 @@
-<p>account-details works!</p>
-Total networth:
-<span>{{totalNetWorth}}</span><br>
-<h4>Cash:</h4>
-<span>{{cashNetWorth}}</span><br>
-<span *ngFor='let item of cash'>{{item.company}} {{item.name}} {{item.value}} {{item.date}}<br></span>
-<h4>Investments:</h4>
-<span>{{investmentNetWorth}}</span><br>
-<div class="scroll">
-    <span *ngFor='let item of investments'>{{item.accountName}} {{item.symbol}} {{item.value}} {{item.date}}<br></span>
+NET WORTH
+<span>${{totalNetWorth}}</span><br>
+<b>Cash:</b>
+<span>${{cashNetWorth}}</span>
+<br>
+<span *ngFor='let item of cash'>
+    {{item.company}} ${{item.value}}<br> {{item.name}} {{item.date}}<br>
+</span>
+<hr>
+
+<b>Investments:</b>
+<span>${{investmentNetWorth}}</span>
+<br>
+<div class="scroll" height="300px">
+    <span *ngFor='let item of investments'>
+        {{item.symbol}} ${{item.value}}<br>{{item.accountName}} {{item.date}}<br>
+    </span>
 </div>
 
