@@ -33,9 +33,10 @@ export class TopFiveComponent implements OnInit {
           this.reportDataGain[i]['symbol'] = data[i]['symbol']
           this.reportDataGain[i]['percentage'] =((data[i]['closePrice']/ data[i]['purchasePrice'])*100-100)
         }
-        this.reportDataLose.sort(function(a, b) {
+        this.reportDataGain.sort(function(a, b) {
           return b.percentage-a.percentage;
       });
+      //this.reportDataGain=this.reportDataGain.reverse()
 
      
       })
@@ -48,10 +49,10 @@ export class TopFiveComponent implements OnInit {
           this.reportDataLose[i]['percentage'] =(data[i]['closePrice']/ data[i]['purchasePrice'])*100-100
         }
 
-        this.reportDataGain.sort(function(a, b) {
+        this.reportDataLose.sort(function(a, b) {
           return a.percentage-b.percentage;
       });
-      this.reportDataGain=this.reportDataGain.reverse()
+      //this.reportDataGain=this.reportDataGain.reverse()
       })
 
 
