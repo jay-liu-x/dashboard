@@ -10,11 +10,26 @@
   </div>
   </div>
   <hr>
-  <p>TODAY</p>
-  <ul>
-    <li>DOW JONES: {{ DOWJONESData.show }}</li>
-    <li>SP500: {{ SP500Data.show }}</li>
-    <li>NASDQ: {{ NASDQData.show }}</li>
-    <li>10-TR Bond: {{ BondData.show }}</li>
-  </ul>
+  <p class="text-secondary">TODAY</p>
+
+
+
+<div class="container">
+  <div class="text-center">
+    <button  type="button" class="btn btn-outline-secondary btn-xs" >{{ DOWJONESData.show }}<br>&nbsp; DOW&nbsp;JONES </button>
+    <button  type="button" class="btn btn-outline-secondary btn-xs">{{ SP500Data.show }}<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SP500&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  </div>
+
+   <div class="text-center">
+    <button  type="button" class="btn btn-outline-secondary btn-xs" >{{ NASDQData.show }}<br> &nbsp;&nbsp;&nbsp;&nbsp;NASDQ&nbsp;&nbsp;&nbsp; &nbsp; </button>
+    <button  type="button" class="btn btn-outline-secondary btn-xs">{{ SP500Data.show }}{{ BondData.show }}<br> 10-TR BOND</button>
+  </div>
 </div>
+
+
+
+
+
+
+</div>
+

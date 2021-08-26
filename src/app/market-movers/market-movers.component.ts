@@ -7,10 +7,10 @@ import{MarketMoversService} from  'src/services/market-movers.service';
   styleUrls: ['./market-movers.component.css']
 })
 export class MarketMoversComponent implements OnInit {
-  DOWJONESData:any ={percentage:'-0.8%' , difference:'-1.0',show: '0.0'}
-  SP500Data: any = {percentage:'5.0%' , difference:'2.0',show: '0.0'}
-  NASDQData: any = {percentage:'1.2%' , difference:'3.0',show: '0.0'}
-  BondData: any = {percentage:'4.0%' , difference:'4.0',show: '0.0'}
+  DOWJONESData:any ={percentage:'-0.8%' , difference:'-1.0',show: '0.0%'}
+  SP500Data: any = {percentage:'5.0%' , difference:'2.0',show: '0.0%'}
+  NASDQData: any = {percentage:'1.2%' , difference:'3.0',show: '0.0%'}
+  BondData: any = {percentage:'4.0%' , difference:'4.0',show: '0.0%'}
 
   constructor(private marketmoversService:MarketMoversService) { }
 
