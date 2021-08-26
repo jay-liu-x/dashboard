@@ -1,10 +1,13 @@
-<h3>Top Five Gainers:</h3>
+<h5>YOUR GAINERS</h5>
+<hr>
 <ul>
-    <li *ngFor='let stock of reportDataGain'>{{stock.symbol}} : {{stock.percentage}}%</li>
+    <p *ngFor='let stock of reportDataGain' style='color:green'>{{stock.symbol}} : {{stock.percentage}}%</p>
+    <p style='color:green'>{{reportDataGain[0].symbol}} : {{reportDataGain[0].percentage}}%</p>
 </ul>
 
 
-<h3>Top Five Losers:</h3>
+<h5>YOUR LOSERS</h5>
+<hr>
 <ul>
-    <li *ngFor='let stock of reportDataLose'>{{stock.symbol}} : {{stock.percentage}}%</li>
+    <p *ngFor='let stock of reportDataLose'>{{stock.symbol}} : {{stock.percentage}}%</p>
 </ul>
