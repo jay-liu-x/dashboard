@@ -4,26 +4,32 @@
 
 <ng-container>
   <h1>Portfolio Manager</h1>
-
-  <ng-container>
-    <h2>Net Worth</h2>
-    <app-account-details></app-account-details>
-    <app-net-worth></app-net-worth>
-  </ng-container>
-
-  <app-cash-flow></app-cash-flow>
-
-  <ng-container>
-    <h2>Market Movers</h2>
-    <app-market-movers></app-market-movers>
-  </ng-container>
-
-  <ng-container>
-    <h2>Top Five Gainers and Losers</h2>
-    <app-top-five></app-top-five>
-  </ng-container>
-
-  <app-news></app-news>
-
-  <router-outlet> </router-outlet>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <ng-container>
+          <h2>Net Worth</h2>
+          <app-account-details></app-account-details>
+        </ng-container>
+      </div>
+      <div class="col-4">
+        <app-net-worth></app-net-worth>
+        <app-cash-flow></app-cash-flow>
+      </div>
+      <div class="col-4">
+        <ng-container>
+          <h2>Market Movers</h2>
+          <app-market-movers></app-market-movers>
+          <ng-container>
+            <h2>Top Five Gainers and Losers</h2>
+            <app-top-five></app-top-five>
+          </ng-container>
+        
+          <app-news></app-news>
+        
+          <router-outlet> </router-outlet>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </ng-container>
