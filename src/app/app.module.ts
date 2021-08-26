@@ -12,6 +12,7 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { TopFiveComponent } from './top-five/top-five.component';
 import { NewsComponent } from './news/news.component';
 import { MarketMoversComponent } from './market-movers/market-movers.component';
+//import { SwitchViewComponent } from './market-movers/switch-view/switch-view.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MarketMoversComponent } from './market-movers/market-movers.component';
     AccountDetailsComponent,
     TopFiveComponent,
     NewsComponent,
-    MarketMoversComponent
+    MarketMoversComponent,
+    //SwitchViewComponent
   ],
   imports: [
     BrowserModule,

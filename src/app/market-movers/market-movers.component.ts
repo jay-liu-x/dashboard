@@ -7,7 +7,8 @@ import{MarketMoversService} from  'src/services/market-movers.service';
   styleUrls: ['./market-movers.component.css']
 })
 export class MarketMoversComponent implements OnInit {
-  DOWJONES:any ={percentage:0.0 , difference:0.0}
+  DOWJONESData:any ={percentage:'' , difference:'',show:''}
+  //DOWJONES:any
 
   constructor(private marketmoversService:MarketMoversService) { }
 
@@ -16,17 +17,21 @@ export class MarketMoversComponent implements OnInit {
     this.marketmoversService.getDOWJONES()
       .subscribe((data:any)=>{
         console.log(data)
-        this.DOWJONES['percentage'] =  (data['prices'][0]['close']/ data['prices'][1]['close'])*100-100
-        this.DOWJONES['difference'] = data['prices'][0]['close'] - data['prices'][1]['close']
+        this.DOWJONESData['percentage'] =  (data['prices'][0]['close']/ data['prices'][1]['close'])*100-100
+        this.DOWJONESData['percentage'] = this.DOWJONESData['percentage'] +'%'
+        this.DOWJONESData['difference'] = data['prices'][0]['close'] - data['prices'][1]['close']
+        //initialization
+        this.DOWJONESData['show'] = this.DOWJONESData['percentage']
         
       })
   }
 
   showPercentage(){
-    return this.DOWJONES['percentage'];
+    this.DOWJONESData['show'] = this.DOWJONESData['percentage']
   }
   showDifference(){
-    return this.DOWJONES['difference'];
+
+    this.DOWJONESData['show'] = this.DOWJONESData['difference']
   }
 
 }
