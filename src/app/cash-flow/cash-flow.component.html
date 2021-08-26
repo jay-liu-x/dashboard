@@ -1,32 +1,69 @@
-<h2>Cash Flow</h2>
-<h3>Income: {{ totalIncome | currency: "USD" }}</h3>
-<h3>Spending: {{ totalSpending | currency: "USD" }}</h3>
-<h3>Overall: {{ totalIncome - totalSpending | currency: "USD" }}</h3>
-<button (click)="onToggleView()">Toggle View</button>
-<div style="display: block">
-  <canvas
-    *ngIf="showLineChart; else barChart"
-    baseChart
-    [datasets]="chartData"
-    [labels]="chartLabels"
-    [options]="chartOptions"
-    [legend]="chartLegend"
-    [chartType]="'line'"
-    [colors]="chartColors"
-    height="300"
-  >
-  </canvas>
-  <ng-template #barChart>
+<div
+  class="
+    card
+    p-3
+    my-3
+    d-flex
+    flex-col
+    justify-content-center
+    align-items-center
+  "
+>
+  <p class="h3">Cash Flow</p>
+
+  <table class="table table-hover w-75">
+    <tbody>
+      <tr class="table-success">
+        <td>Income</td>
+        <td>{{ totalIncome | currency: "USD" }}</td>
+      </tr>
+      <tr class="table-danger">
+        <td>Spending</td>
+        <td>{{ totalSpending | currency: "USD" }}</td>
+      </tr>
+      <tr class="table-dark">
+        <td>Overall</td>
+        <td>{{ totalIncome - totalSpending | currency: "USD" }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Bar chart view toggle -->
+  <div class="form-check form-switch my-3">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="toggleBarChart"
+      (change)="onToggleView()"
+    />
+    <label class="form-check-label" for="toggleBarChart">Bar chart</label>
+  </div>
+
+  <div class="w-100" style="display: block">
     <canvas
+      *ngIf="!showBarChart; else barChart"
       baseChart
       [datasets]="chartData"
       [labels]="chartLabels"
       [options]="chartOptions"
       [legend]="chartLegend"
-      [chartType]="'bar'"
+      [chartType]="'line'"
       [colors]="chartColors"
-      height="300"
+      height="350"
     >
-    </canvas
-  ></ng-template>
+    </canvas>
+    <ng-template #barChart>
+      <canvas
+        baseChart
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="chartLegend"
+        [chartType]="'bar'"
+        [colors]="chartColors"
+        height="300"
+      >
+      </canvas
+    ></ng-template>
+  </div>
 </div>
