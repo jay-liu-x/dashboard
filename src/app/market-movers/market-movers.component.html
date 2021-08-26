@@ -10,19 +10,32 @@
   </div>
   </div>
   <hr>
-  <p class="text-secondary">TODAY</p>
+  <p class="text-muted">TODAY</p>
 
 
 
 <div class="container">
   <div class="text-center">
-    <button  type="button" class="btn btn-outline-secondary btn-xs" >{{ DOWJONESData.show }}<br>&nbsp; DOW&nbsp;JONES </button>
-    <button  type="button" class="btn btn-outline-secondary btn-xs">{{ SP500Data.show }}<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SP500&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    <button  type="button" class="btn btn-outline-secondary btn-xs" >
+      <p class="text-danger">{{ DOWJONESData.show }}</p>
+      &nbsp;DOW&nbsp;JONES
+      <!--&nbsp; DOW&nbsp;JONES -->
+    </button>
+    <button  type="button" class="btn btn-outline-secondary btn-xs">
+      <p class="text-success">{{ SP500Data.show }} </p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SP500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </button>
   </div>
 
    <div class="text-center">
-    <button  type="button" class="btn btn-outline-secondary btn-xs" >{{ NASDQData.show }}<br> &nbsp;&nbsp;&nbsp;&nbsp;NASDQ&nbsp;&nbsp;&nbsp; &nbsp; </button>
-    <button  type="button" class="btn btn-outline-secondary btn-xs">{{ SP500Data.show }}{{ BondData.show }}<br> 10-TR BOND</button>
+    <button  type="button" class="btn btn-outline-secondary btn-xs" >
+      <p class="text-success">{{ NASDQData.show }} </p>
+      &nbsp;&nbsp;&nbsp;&nbsp;NASDQ&nbsp;&nbsp;&nbsp; &nbsp; 
+    </button>
+    <button  type="button" class="btn btn-outline-secondary btn-xs">
+      <p class="text-success">{{ BondData.show }}</p>
+      10-TR BOND
+    </button>
   </div>
 </div>
 
@@ -32,4 +45,5 @@
 
 
 </div>
+
 

@@ -79,5 +79,8 @@ export class MarketMoversComponent implements OnInit {
     this.NASDQData['show'] = this.NASDQData['difference']
     this.BondData['show'] = this.BondData['difference']
   }
+  switchMode(){
+    
+  }
 
 }
